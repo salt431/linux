@@ -104,7 +104,7 @@
 #include "amdgpu_mmhub.h"
 #include "amdgpu_df.h"
 
-#define MAX_GPU_INSTANCE		16
+#define MAX_GPU_INSTANCE		32
 
 struct amdgpu_gpu_instance
 {
@@ -204,12 +204,12 @@ extern int amdgpu_cik_support;
 
 #define AMDGPU_VM_MAX_NUM_CTX			4096
 #define AMDGPU_SG_THRESHOLD			(256*1024*1024)
-#define AMDGPU_DEFAULT_GTT_SIZE_MB		3072ULL /* 3GB by default */
-#define AMDGPU_WAIT_IDLE_TIMEOUT_IN_MS	        3000
-#define AMDGPU_MAX_USEC_TIMEOUT			100000	/* 100 ms */
+#define AMDGPU_DEFAULT_GTT_SIZE_MB		4096ULL /* 4GB by default */
+#define AMDGPU_WAIT_IDLE_TIMEOUT_IN_MS	        6000
+#define AMDGPU_MAX_USEC_TIMEOUT			900000	/* 100 ms */
 #define AMDGPU_FENCE_JIFFIES_TIMEOUT		(HZ / 2)
-#define AMDGPU_DEBUGFS_MAX_COMPONENTS		32
-#define AMDGPUFB_CONN_LIMIT			4
+#define AMDGPU_DEBUGFS_MAX_COMPONENTS		64
+#define AMDGPUFB_CONN_LIMIT			8
 #define AMDGPU_BIOS_NUM_SCRATCH			16
 
 /* hard reset data */
@@ -273,7 +273,7 @@ enum amdgpu_kiq_irq {
 	AMDGPU_CP_KIQ_IRQ_LAST
 };
 
-#define MAX_KIQ_REG_WAIT       5000 /* in usecs, 5ms */
+#define MAX_KIQ_REG_WAIT       9000 /* in usecs, 9ms */
 #define MAX_KIQ_REG_BAILOUT_INTERVAL   5 /* in msecs, 5ms */
 #define MAX_KIQ_REG_TRY 80 /* 20 -> 80 */
 
